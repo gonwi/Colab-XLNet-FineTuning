@@ -247,7 +247,10 @@ def read_squad_examples(input_file, is_training):
         question_text = qa["question"]
         start_position = None
         orig_answer_text = None
-        is_impossible = False
+        if "is_impossible" in qa:
+            is_impossible = qa["is_impossible"]
+          else:
+            is_impossible = False 
 
         if is_training:
           is_impossible = qa["is_impossible"]
